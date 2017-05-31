@@ -80,11 +80,11 @@ bot.on('message', function(event) {
                     callParseServerCloudCode("getReplyMsg", '{"msg":"' + messageText + '"}', function(response) {
                         if (response == "") {
                             console.log("no msg reply");
-                            event.reply("ข้าไม่เข้าใจที่เจ้าพูด").then(function(data) {
+                            /*event.reply("ข้าไม่เข้าใจที่เจ้าพูด").then(function(data) {
                                 // success
                             }).catch(function(error) {
                                 // error
-                            });
+                            });*/
                         } else {
                             event.reply(response).then(function(data) {
                                 // success
