@@ -6,12 +6,13 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var ParseDashboard = require('parse-dashboard');
 var request = require('request');
+var wordcut = require("wordcut");
+var linebot = require('linebot');
 
 var CHANNEL_SECRET = process.env.channelSecret;
 var CHANNEL_ACCESS_TOKEN = process.env.channelToken;
 var CHANNEL_ID = process.env.channelID;
 
-var linebot = require('linebot');
 
 var bot = linebot({
     channelId: CHANNEL_ID,
@@ -19,7 +20,7 @@ var bot = linebot({
     channelAccessToken: CHANNEL_ACCESS_TOKEN
 });
 var botParser = bot.parser();
-
+wordcut.init();
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -167,6 +168,9 @@ app.use(mountPath, api);
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
     res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+});
+app.get('/testcut', function(req, res) {
+    res.status(200).send(wordcut.cut('วันนี้เป็นวันอะไร'));
 });
 
 // There will be a test page available on the /test path of your server url
