@@ -6,7 +6,7 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var ParseDashboard = require('parse-dashboard');
 var request = require('request');
-var wordcut = require("wordcut");
+var wordcut = require('thai-wordcut');
 var linebot = require('linebot');
 
 var CHANNEL_SECRET = process.env.channelSecret;
