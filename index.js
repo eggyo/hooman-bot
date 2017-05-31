@@ -5,6 +5,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 var ParseDashboard = require('parse-dashboard');
+var request = require('request');
 
 var CHANNEL_SECRET = process.env.channelSecret;
 var CHANNEL_ACCESS_TOKEN = process.env.channelToken;
